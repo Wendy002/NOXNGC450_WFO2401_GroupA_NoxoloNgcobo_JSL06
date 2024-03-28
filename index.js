@@ -69,17 +69,20 @@ function addToOrder(itemName) {
     orderTotalEl.textContent = total;
 
     //Attach a click event listener to the list item to remove it from the order
-    listItem.addEventListener('click', function(event){
-        event.preventDefault();
-        listItem.remove();
-        total -= 60;
-        orderTotalEl.textContent = total;
-
-    });
+    removeFromOrder(listItem,total,orderTotalEl);
 
 }
 
-function removeFromOrder(item){
+//function to remove list item from order
+function removeFromOrder(item,total,orderTotalElement){
+
+    item.addEventListener('click', function(event){
+        event.preventDefault();
+        item.remove();
+        total -= 60;
+        orderTotalElement.textContent = total;
+
+    });
 
 }
 
