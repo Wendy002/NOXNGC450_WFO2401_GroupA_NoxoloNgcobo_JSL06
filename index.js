@@ -9,6 +9,7 @@ displayMenuItems(menu);
 function displayMenuItems(menu) {
     // Get the menu container element from the HTML
     const menuEl = document.getElementById('menu');
+    const orderEl = document.getElementById('order-items');
     // Loop through each category and its items in the menu object
     Object.entries(menu).map(([item, itemMenu ])=> {
         // Create an element to represent the category
@@ -31,9 +32,24 @@ function displayMenuItems(menu) {
 
            // Set the text content of the list item element to the item name
            menuItem.textContent = ListItem;
-           // Attach a click event listener to the list item to add it to the order
+           
            // Append the list item to the list of items
            itemEl.appendChild(menuItem);
+
+           // Attach a click event listener to the list item to add it to the order
+           menuItem.addEventListener('click', function (event){
+            event.preventDefault(); // prevents default behaviour when item is clicked
+            const clonedItem = menuItem.cloneNode(true); // clone the menu items
+            // Attach a click event listener to the list item to remove it from the order
+            clonedItem.addEventListener('click', function(event){
+                event.preventDefault();
+                clonedItem.remove();
+
+            });
+            orderEl.appendChild(clonedItem); //add items to order
+
+           });
+
         });
          
 
