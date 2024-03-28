@@ -8,19 +8,22 @@ const menu = {
 // Function to display menu items by category
 function displayMenuItems(menu) {
     // Get the menu container element from the HTML
-
+    const menuEl = document.getElementById('menu');
     // Loop through each category and its items in the menu object
-
+    menu.map(itemMenu => {
         // Create an element to represent the category
+        const category = document.createElement('h2');
 
         // Set the text content of the category element to the category name
+        category.textContent = Object.keys(itemMenu);
 
         // Append the category element to the menu container
+        menuEl.appendChild(category);
 
         // Create an element to represent a list of items
 
         // Append a list of items element to the menu container
-
+        
         // Loop through the items in the category and create list items
 
             // Create a list item element
@@ -31,28 +34,30 @@ function displayMenuItems(menu) {
 
             // Append the list item to the list of items
 
-            
+    });
+           
 }
+displayMenuItems(menu);
 
-// Callback function for adding an item to the order
-function addToOrder(itemName) {
-    // Get the order items list and the order total element from the HTML
+// // Callback function for adding an item to the order
+// function addToOrder(itemName) {
+//     // Get the order items list and the order total element from the HTML
 
-    // Create a list item for the order
+//     // Create a list item for the order
 
-    // Set the text content of the list item to the item name
+//     // Set the text content of the list item to the item name
 
-    // Append the list item to the order items list
+//     // Append the list item to the order items list
 
-    // Calculate and update the total price
+//     // Calculate and update the total price
 
-    // Update the text content of the order total element with the new total
-}
+//     // Update the text content of the order total element with the new total
+// }
 
-// Function to initialize the menu system
-function initMenuSystem(menu) {
-    // Call the function to display menu items
-}
+// // Function to initialize the menu system
+// function initMenuSystem(menu) {
+//     // Call the function to display menu items
+// }
 
-// Start the menu system by calling the init function
-initMenuSystem(menu);
+// // Start the menu system by calling the init function
+// initMenuSystem(menu);
