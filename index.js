@@ -41,12 +41,6 @@ function displayMenuItems(menu) {
             event.preventDefault(); // prevents default behaviour when item is clicked
             addToOrder(listItem); // clone the menu items
 
-            // Attach a click event listener to the list item to remove it from the order
-            // clonedItem.addEventListener('click', function(event){
-            //     event.preventDefault();
-            //     clonedItem.remove();
-
-            // });
 
            });
 
@@ -73,7 +67,19 @@ function addToOrder(itemName) {
     // Calculate and update the total price
     total += 60;
     orderTotalEl.textContent = total;
-    // Update the text content of the order total element with the new total
+
+    //Attach a click event listener to the list item to remove it from the order
+    listItem.addEventListener('click', function(event){
+        event.preventDefault();
+        listItem.remove();
+        total -= 60;
+        orderTotalEl.textContent = total;
+
+    });
+
+}
+
+function removeFromOrder(item){
 
 }
 
