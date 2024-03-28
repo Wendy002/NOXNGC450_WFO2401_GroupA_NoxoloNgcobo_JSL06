@@ -4,40 +4,43 @@ const menu = {
     MainCourses: ["Margherita Pizza", "Spaghetti Carbonara"],
     Desserts: ["Tiramisu", "Cheesecake"]
 };
-
+displayMenuItems(menu);
 // Function to display menu items by category
 function displayMenuItems(menu) {
     // Get the menu container element from the HTML
     const menuEl = document.getElementById('menu');
     // Loop through each category and its items in the menu object
-    menu.map(itemMenu => {
+    Object.entries(menu).map(([item, itemMenu ])=> {
         // Create an element to represent the category
-        const category = document.createElement('h2');
+        let category = document.createElement('h2');
 
         // Set the text content of the category element to the category name
-        category.textContent = Object.keys(itemMenu);
+        category.textContent = item;
 
         // Append the category element to the menu container
         menuEl.appendChild(category);
 
         // Create an element to represent a list of items
-
+        const itemEl = document.createElement('ul');
         // Append a list of items element to the menu container
-        
+        menuEl.appendChild(itemEl);
         // Loop through the items in the category and create list items
+        itemMenu.forEach(ListItem => {
+           // Create a list item element
+           const menuItem = document.createElement('li');
 
-            // Create a list item element
-
-            // Set the text content of the list item element to the item name
-
-            // Attach a click event listener to the list item to add it to the order
-
-            // Append the list item to the list of items
+           // Set the text content of the list item element to the item name
+           menuItem.textContent = ListItem;
+           // Attach a click event listener to the list item to add it to the order
+           // Append the list item to the list of items
+           itemEl.appendChild(menuItem);
+        });
+         
 
     });
            
 }
-displayMenuItems(menu);
+
 
 // // Callback function for adding an item to the order
 // function addToOrder(itemName) {
