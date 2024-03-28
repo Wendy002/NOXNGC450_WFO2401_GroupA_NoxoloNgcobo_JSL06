@@ -26,12 +26,12 @@ function displayMenuItems(menu) {
         // Append a list of items element to the menu container
         menuEl.appendChild(itemEl);
         // Loop through the items in the category and create list items
-        itemMenu.forEach(ListItem => {
+        itemMenu.forEach(listItem => {
            // Create a list item element
            const menuItem = document.createElement('li');
 
            // Set the text content of the list item element to the item name
-           menuItem.textContent = ListItem;
+           menuItem.textContent = listItem;
            
            // Append the list item to the list of items
            itemEl.appendChild(menuItem);
@@ -39,14 +39,14 @@ function displayMenuItems(menu) {
            // Attach a click event listener to the list item to add it to the order
            menuItem.addEventListener('click', function (event){
             event.preventDefault(); // prevents default behaviour when item is clicked
-            const clonedItem = menuItem.cloneNode(true); // clone the menu items
-            // Attach a click event listener to the list item to remove it from the order
-            clonedItem.addEventListener('click', function(event){
-                event.preventDefault();
-                clonedItem.remove();
+            addToOrder(listItem); // clone the menu items
 
-            });
-            orderEl.appendChild(clonedItem); //add items to order
+            // Attach a click event listener to the list item to remove it from the order
+            // clonedItem.addEventListener('click', function(event){
+            //     event.preventDefault();
+            //     clonedItem.remove();
+
+            // });
 
            });
 
@@ -63,16 +63,22 @@ function addToOrder(itemName) {
     // Get the order items list and the order total element from the HTML
     const orderEl = document.getElementById('order-items');
     const orderTotalEl = document.getElementById('order-total');
+    let total = parseFloat(orderTotalEl.textContent); ;
     // Create a list item for the order
-    
+    const listItem = document.createElement('li');
     // Set the text content of the list item to the item name
-
+    listItem.textContent = itemName;
     // Append the list item to the order items list
-
+    orderEl.appendChild(listItem);
     // Calculate and update the total price
-
+    total += 60;
+    orderTotalEl.textContent = total;
     // Update the text content of the order total element with the new total
+
 }
+
+
+
 
 // // Function to initialize the menu system
 // function initMenuSystem(menu) {
