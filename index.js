@@ -4,7 +4,7 @@ const menu = {
     MainCourses: ["Margherita Pizza", "Spaghetti Carbonara"],
     Desserts: ["Tiramisu", "Cheesecake"]
 };
-displayMenuItems(menu);
+
 // Function to display menu items by category
 function displayMenuItems(menu) {
     // Get the menu container element from the HTML
@@ -89,10 +89,12 @@ function removeFromOrder(item,total,orderTotalElement){
 
 
 
-// // Function to initialize the menu system
-// function initMenuSystem(menu) {
-//     // Call the function to display menu items
-// }
+// Function to initialize the menu system
+function initMenuSystem(menu) {
+    // Call the function to display menu items
+    displayMenuItems(menu);
 
-// // Start the menu system by calling the init function
-// initMenuSystem(menu);
+}
+
+// Start the menu system by calling the init function
+initMenuSystem(menu);
